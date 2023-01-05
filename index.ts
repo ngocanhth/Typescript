@@ -76,3 +76,55 @@ function getStatusName(state: 'active') {
 // let s1 = 1;
 
 // getStatusName(s1 as 'active') ==> wrong vi không có quan hệ cha non
+
+// Union Type
+
+type Status = 'active' | 'inactive';
+type ProductStatus = 0 | 1 | 2 | 3;
+type StudentId = number | string;
+interface Student {
+    id: number | string;
+    name: string;
+    gender: 'male' | 'female';
+    grade: 'A' | 'B' | 'C' | 'D' | 'E';
+}
+
+// Intersection tye
+
+interface BusinessPartner {
+    name: string;
+    credit: number;
+}
+interface Identity {
+    id: number;
+    name: string;
+}
+interface Contact {
+    email: string;
+    phone: string;
+}
+
+type Employee = Identity & Contact;
+type Customer = BusinessPartner & Contact;
+
+// dùng bằng interface
+
+// interface Employee extends Identity, Contact {}
+// interface Customer extends BusinessPartner, Contact {}
+ 
+
+ type Customer = BusinessPartner & Contact;
+let c: Customer = {
+name: 'ABC Inc.',
+credit: 1000000,
+email: 'sales@abcinc.com',
+phone: '(408)-897-5735'
+};
+type Employee = Identity & BusinessPartner & Contact;
+let e: Employee = {
+id: 100,
+name: 'John Doe',
+email: 'john.doe@example.com',
+phone: '(408)-897-5684',
+credit: 1000
+};
