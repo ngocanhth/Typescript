@@ -1,2 +1,2 @@
 var nameChange = "trttttr";
-console.log('Easy frontend', nameChange);
+console.log('test', nameChange);
